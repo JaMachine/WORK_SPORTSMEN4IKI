@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ import java.util.Collections;
 
 public class LetsPlayActivity extends AppCompatActivity {
 
+    Sportsman gym;
+    int correctAnswer = 669, move = 14, points = 0;
     ArrayList<Integer> sportsmanIndex;
     ImageView
             sportsman,
@@ -35,31 +39,182 @@ public class LetsPlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lets_play);
         sportsman = findViewById(R.id.sportsman);
-        shadow1 = findViewById(R.id.shadow1);
-        shadow2 = findViewById(R.id.shadow2);
-        shadow3 = findViewById(R.id.shadow3);
-        shadow4 = findViewById(R.id.shadow4);
-        shadow5 = findViewById(R.id.shadow5);
-        shadow6 = findViewById(R.id.shadow6);
         score1 = findViewById(R.id.score1);
         score2 = findViewById(R.id.score2);
         score3 = findViewById(R.id.score3);
         score4 = findViewById(R.id.score4);
         score5 = findViewById(R.id.score5);
         score6 = findViewById(R.id.score6);
+        shadow1 = findViewById(R.id.shadow1);
+        final Handler handler = new Handler();
+        int moveTimer = 669;
+        shadow1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 1) {
+                    score1.setImageResource(R.drawable.yes);
+                } else {
+                    score1.setImageResource(R.drawable.no);
+                }
+                score1.setVisibility(View.VISIBLE);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        playNextMove();
+                    }
+                }, moveTimer);
+            }
+        });
+        shadow2 = findViewById(R.id.shadow2);
+        shadow2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 2) {
+                    score2.setImageResource(R.drawable.yes);
+                } else {
+                    score2.setImageResource(R.drawable.no);
+                }
+                score2.setVisibility(View.VISIBLE);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        playNextMove();
+                    }
+                }, moveTimer);
+            }
+        });
+        shadow3 = findViewById(R.id.shadow3);
+        shadow3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 3) {
+                    score3.setImageResource(R.drawable.yes);
+                } else {
+                    score3.setImageResource(R.drawable.no);
+                }
+                score3.setVisibility(View.VISIBLE);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        playNextMove();
+                    }
+                }, moveTimer);
+            }
+        });
+        shadow4 = findViewById(R.id.shadow4);
+        shadow4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 4) {
+                    score4.setImageResource(R.drawable.yes);
+                } else {
+                    score4.setImageResource(R.drawable.no);
+                }
+                score4.setVisibility(View.VISIBLE);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        playNextMove();
+                    }
+                }, moveTimer);
+            }
+        });
+        shadow5 = findViewById(R.id.shadow5);
+        shadow5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 5) {
+                    score5.setImageResource(R.drawable.yes);
+                } else {
+                    score5.setImageResource(R.drawable.no);
+                }
+                score5.setVisibility(View.VISIBLE);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        playNextMove();
+                    }
+                }, moveTimer);
+            }
+        });
+        shadow6 = findViewById(R.id.shadow6);
+        shadow6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 6) {
+                    score6.setImageResource(R.drawable.yes);
+                } else {
+                    score6.setImageResource(R.drawable.no);
+                }
+                score6.setVisibility(View.VISIBLE);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        playNextMove();
+                    }
+                }, moveTimer);
+            }
+        });
         sportsmanIndex = new ArrayList<>();
-        for (int i = 1; i < 16; i++) {
-            sportsmanIndex.add(i);
-        }
+//        for (int i = 1; i < 16; i++) {
+//            sportsmanIndex.add(i);
+//        }
+        sportsmanIndex.add(1);
+        sportsmanIndex.add(2);
+        sportsmanIndex.add(3);
+        sportsmanIndex.add(4);
+        sportsmanIndex.add(5);
+        sportsmanIndex.add(6);
+        sportsmanIndex.add(7);
+        sportsmanIndex.add(8);
+        sportsmanIndex.add(9);
+        sportsmanIndex.add(10);
+        sportsmanIndex.add(11);
+        sportsmanIndex.add(11);
+        sportsmanIndex.add(12);
+        sportsmanIndex.add(13);
+        sportsmanIndex.add(14);
+        sportsmanIndex.add(15);
+        gym = new Sportsman();
         newGame();
 
-
-        Sportsman gym = new Sportsman();
-        TypedArray newcomer = gym.get(this, sportsmanIndex.get(1));
-        sportsman.setImageResource(newcomer.getResourceId(0, 0));
     }
 
     void newGame() {
         Collections.shuffle(sportsmanIndex);
+        playNextMove();
+    }
+
+    void playNextMove() {
+        score1.setVisibility(View.GONE);
+        score2.setVisibility(View.GONE);
+        score3.setVisibility(View.GONE);
+        score4.setVisibility(View.GONE);
+        score5.setVisibility(View.GONE);
+        score6.setVisibility(View.GONE);
+        if (move >= 0) {
+            TypedArray newcomer = gym.get(this, sportsmanIndex.get(sportsmanIndex.get(move)));
+            ArrayList<Integer> random = new ArrayList<>();
+            random.add(1);
+            random.add(2);
+            random.add(3);
+            random.add(4);
+            random.add(5);
+            random.add(6);
+            Collections.shuffle(random);
+            sportsman.setImageResource(newcomer.getResourceId(0, 0));
+            shadow1.setImageResource(newcomer.getResourceId(random.get(0), 0));
+            shadow2.setImageResource(newcomer.getResourceId(random.get(1), 0));
+            shadow3.setImageResource(newcomer.getResourceId(random.get(2), 0));
+            shadow4.setImageResource(newcomer.getResourceId(random.get(3), 0));
+            shadow5.setImageResource(newcomer.getResourceId(random.get(4), 0));
+            shadow6.setImageResource(newcomer.getResourceId(random.get(5), 0));
+            for (int i = 0; i < random.size(); i++) {
+                if (random.get(i) == 1) {
+                    correctAnswer = i + 1;
+                }
+            }
+            move--;
+        }
     }
 }
