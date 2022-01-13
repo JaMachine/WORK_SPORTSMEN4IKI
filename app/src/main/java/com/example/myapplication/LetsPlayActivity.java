@@ -1,13 +1,17 @@
 package com.example.myapplication;
 
+import static android.graphics.Typeface.createFromAsset;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +20,7 @@ import java.util.Collections;
 public class LetsPlayActivity extends AppCompatActivity {
 
     Sportsman gym;
+    TextView move_disp, time_disp;
     int correctAnswer = 669, move = 14, points = 0;
     ArrayList<Integer> sportsmanIndex;
     ImageView
@@ -38,6 +43,10 @@ public class LetsPlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lets_play);
+        move_disp = findViewById(R.id.move_disp);
+        time_disp = findViewById(R.id.time_disp);
+        time_disp.setTypeface(createFromAsset(getAssets(), "fonts/montserrat_bold.ttf"));
+        move_disp.setTypeface(createFromAsset(getAssets(), "fonts/montserrat_bold.ttf"));
         sportsman = findViewById(R.id.sportsman);
         score1 = findViewById(R.id.score1);
         score2 = findViewById(R.id.score2);
@@ -186,6 +195,7 @@ public class LetsPlayActivity extends AppCompatActivity {
     }
 
     void playNextMove() {
+        move_disp.setText((move + 1) + "/15");
         score1.setVisibility(View.GONE);
         score2.setVisibility(View.GONE);
         score3.setVisibility(View.GONE);

@@ -29,10 +29,10 @@
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_marginBottom="30dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="70dp"
             android:layout_marginRight="60dp"
-            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
             android:layout_weight="6">
 
             <LinearLayout
@@ -110,8 +110,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -187,12 +187,23 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/stats"
+        android:id="@+id/move_disp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:text="03:00\n07/15"
+        android:layout_margin="25dp"
+        android:text="15/15"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/time_disp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginBottom="42dp"
+        android:text="03:00"
         android:textColor="@color/white"
         android:textSize="17dp" />
 
