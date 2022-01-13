@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="s1">
+        <item>@drawable/a</item>
+        <item>@drawable/a1</item>
+        <item>@drawable/a2</item>
+        <item>@drawable/a3</item>
+        <item>@drawable/a4</item>
+        <item>@drawable/a5</item>
+        <item>@drawable/a6</item>
+    </integer-array>
+
+    <integer-array name="s2">
+        <item>@drawable/b</item>
+        <item>@drawable/b1</item>
+        <item>@drawable/b2</item>
+        <item>@drawable/b3</item>
+        <item>@drawable/b4</item>
+        <item>@drawable/b5</item>
+        <item>@drawable/b6</item>
+    </integer-array>
+
+    <integer-array name="s3">
+        <item>@drawable/c</item>
+        <item>@drawable/c1</item>
+        <item>@drawable/c2</item>
+        <item>@drawable/c3</item>
+        <item>@drawable/c4</item>
+        <item>@drawable/c5</item>
+        <item>@drawable/c6</item>
+    </integer-array>
+
+    <integer-array name="s4">
+        <item>@drawable/d</item>
+        <item>@drawable/d1</item>
+        <item>@drawable/d2</item>
+        <item>@drawable/d3</item>
+        <item>@drawable/d4</item>
+        <item>@drawable/d5</item>
+        <item>@drawable/d6</item>
+    </integer-array>
+
+    <integer-array name="s5">
+        <item>@drawable/e</item>
+        <item>@drawable/e1</item>
+        <item>@drawable/e2</item>
+        <item>@drawable/e3</item>
+        <item>@drawable/e4</item>
+        <item>@drawable/e5</item>
+        <item>@drawable/e6</item>
+    </integer-array>
+
+    <integer-array name="s6">
+        <item>@drawable/g</item>
+        <item>@drawable/g1</item>
+        <item>@drawable/g2</item>
+        <item>@drawable/g3</item>
+        <item>@drawable/g4</item>
+        <item>@drawable/g5</item>
+        <item>@drawable/g6</item>
+    </integer-array>
+
+    <integer-array name="s7">
+        <item>@drawable/i</item>
+        <item>@drawable/i1</item>
+        <item>@drawable/i2</item>
+        <item>@drawable/i3</item>
+        <item>@drawable/i4</item>
+        <item>@drawable/i5</item>
+        <item>@drawable/i6</item>
+    </integer-array>
+
+    <integer-array name="s8">
+        <item>@drawable/j</item>
+        <item>@drawable/j1</item>
+        <item>@drawable/j2</item>
+        <item>@drawable/j3</item>
+        <item>@drawable/j4</item>
+        <item>@drawable/j5</item>
+        <item>@drawable/j6</item>
+    </integer-array>
+
+    <integer-array name="s9">
+        <item>@drawable/k</item>
+        <item>@drawable/k1</item>
+        <item>@drawable/k2</item>
+        <item>@drawable/k3</item>
+        <item>@drawable/k4</item>
+        <item>@drawable/k5</item>
+        <item>@drawable/k6</item>
+    </integer-array>
+
+    <integer-array name="s10">
+        <item>@drawable/l</item>
+        <item>@drawable/l1</item>
+        <item>@drawable/l2</item>
+        <item>@drawable/l3</item>
+        <item>@drawable/l4</item>
+        <item>@drawable/l5</item>
+        <item>@drawable/l6</item>
+    </integer-array>
+
+    <integer-array name="s11">
+        <item>@drawable/m</item>
+        <item>@drawable/m1</item>
+        <item>@drawable/m2</item>
+        <item>@drawable/m3</item>
+        <item>@drawable/m4</item>
+        <item>@drawable/m5</item>
+        <item>@drawable/m6</item>
+    </integer-array>
+
+    <integer-array name="s12">
+        <item>@drawable/n</item>
+        <item>@drawable/n1</item>
+        <item>@drawable/n2</item>
+        <item>@drawable/n3</item>
+        <item>@drawable/n4</item>
+        <item>@drawable/n5</item>
+        <item>@drawable/n6</item>
+    </integer-array>
+
+    <integer-array name="s13">
+        <item>@drawable/o</item>
+        <item>@drawable/o1</item>
+        <item>@drawable/o2</item>
+        <item>@drawable/o3</item>
+        <item>@drawable/o4</item>
+        <item>@drawable/o5</item>
+        <item>@drawable/o6</item>
+    </integer-array>
+
+    <integer-array name="s14">
+        <item>@drawable/f</item>
+        <item>@drawable/f1</item>
+        <item>@drawable/f2</item>
+        <item>@drawable/f3</item>
+        <item>@drawable/f4</item>
+        <item>@drawable/f5</item>
+        <item>@drawable/f6</item>
+    </integer-array>
+
+    <integer-array name="s15">
+        <item>@drawable/h</item>
+        <item>@drawable/h1</item>
+        <item>@drawable/h2</item>
+        <item>@drawable/h3</item>
+        <item>@drawable/h4</item>
+        <item>@drawable/h5</item>
+        <item>@drawable/h6</item>
+    </integer-array>
+</resources>
