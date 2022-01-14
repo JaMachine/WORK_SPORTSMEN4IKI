@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -14,14 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class LetsPlayActivity extends AppCompatActivity {
 
     Sportsman gym;
     TextView move_disp, time_disp;
-    int correctAnswer = 669, move = 14, points = 0;
+    int correctAnswer = 669, move = 14, points = 0, matchTime = 180;
     ArrayList<Integer> sportsmanIndex;
     ImageView
             sportsman,
@@ -187,11 +187,13 @@ public class LetsPlayActivity extends AppCompatActivity {
         gym = new Sportsman();
         newGame();
 
+
     }
 
     void newGame() {
         Collections.shuffle(sportsmanIndex);
         playNextMove();
+        startTimer();
     }
 
     void playNextMove() {
@@ -226,5 +228,30 @@ public class LetsPlayActivity extends AppCompatActivity {
             }
             move--;
         }
+    }
+
+    void startTimer() {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (matchTime == 180) time_disp.setText("03:00");
+                if (matchTime < 180 && matchTime > 119) {
+                    time_disp.setText("02:" + (matchTime - 120));
+                    if ((matchTime - 120) < 10) time_disp.setText("02:0" + (matchTime - 120));
+                }
+                if (matchTime < 120 && matchTime > 59) {
+                    time_disp.setText("01:" + (matchTime - 60));
+                    if ((matchTime - 60) < 10) time_disp.setText("01:0" + (matchTime - 60));
+                }
+                if (matchTime < 60) {
+                    time_disp.setText("00:" + matchTime);
+                    if (matchTime < 10) time_disp.setText("00:0" + matchTime);
+                }
+                matchTime--;
+                if (matchTime > 0) startTimer();
+
+            }
+        }, 100);
     }
 }
