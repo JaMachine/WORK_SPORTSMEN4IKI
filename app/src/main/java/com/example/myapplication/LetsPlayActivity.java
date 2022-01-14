@@ -5,6 +5,7 @@ import static android.graphics.Typeface.createFromAsset;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Handler;
@@ -60,7 +61,7 @@ public class LetsPlayActivity extends AppCompatActivity {
         information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(LetsPlayActivity.this, InformationActivity.class));
             }
         });
         score4 = findViewById(R.id.score4);
