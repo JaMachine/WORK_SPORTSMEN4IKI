@@ -13,9 +13,9 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".InformationActivity"
-            android:screenOrientation="sensor"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensor" />
         <activity
             android:name=".LetsPlayActivity"
             android:exported="false"

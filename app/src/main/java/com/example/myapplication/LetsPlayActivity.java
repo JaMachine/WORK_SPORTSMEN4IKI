@@ -64,6 +64,13 @@ public class LetsPlayActivity extends AppCompatActivity {
                 startActivity(new Intent(LetsPlayActivity.this, InformationActivity.class));
             }
         });
+        closeGame = findViewById(R.id.close_game);
+        closeGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         score4 = findViewById(R.id.score4);
         score5 = findViewById(R.id.score5);
         score6 = findViewById(R.id.score6);
