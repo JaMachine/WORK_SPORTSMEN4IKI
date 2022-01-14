@@ -207,4 +207,37 @@
         android:textColor="@color/white"
         android:textSize="17dp" />
 
+
+    <ImageView
+        android:id="@+id/close_game"
+        android:layout_alignParentRight="true"
+        android:layout_width="30dp"
+        android:layout_margin="20dp"
+        android:layout_height="30dp"
+        android:src="@drawable/exit_button" />
+
+    <ImageView
+        android:id="@+id/information"
+        android:layout_width="30dp"
+        android:layout_toLeftOf="@id/close_game"
+        android:layout_marginTop="20dp"
+        android:layout_height="30dp"
+        android:src="@drawable/info_button" />
+
+
+    <RelativeLayout
+        android:id="@+id/game_over_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/final_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="100dp" />
+    </RelativeLayout>
+
 </RelativeLayout>

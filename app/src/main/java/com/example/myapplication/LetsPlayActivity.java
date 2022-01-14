@@ -10,20 +10,23 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class LetsPlayActivity extends AppCompatActivity {
 
     Sportsman gym;
     TextView move_disp, time_disp;
-    int correctAnswer = 669, move = 14, points = 0, matchTime = 180;
+    int correctAnswer = 669, move = 14, points = 0, matchTime = 180, oneSecond = 1000;
     ArrayList<Integer> sportsmanIndex;
+    RelativeLayout gameOverScreen;
     ImageView
+            closeGame,
+            information,
+            finaleMessage,
             sportsman,
             shadow1,
             shadow2,
@@ -45,12 +48,21 @@ public class LetsPlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lets_play);
         move_disp = findViewById(R.id.move_disp);
         time_disp = findViewById(R.id.time_disp);
+        finaleMessage = findViewById(R.id.final_message);
+        gameOverScreen = findViewById(R.id.game_over_screen);
         time_disp.setTypeface(createFromAsset(getAssets(), "fonts/montserrat_bold.ttf"));
         move_disp.setTypeface(createFromAsset(getAssets(), "fonts/montserrat_bold.ttf"));
         sportsman = findViewById(R.id.sportsman);
         score1 = findViewById(R.id.score1);
         score2 = findViewById(R.id.score2);
         score3 = findViewById(R.id.score3);
+        information = findViewById(R.id.information);
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         score4 = findViewById(R.id.score4);
         score5 = findViewById(R.id.score5);
         score6 = findViewById(R.id.score6);
@@ -62,6 +74,7 @@ public class LetsPlayActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (correctAnswer == 1) {
                     score1.setImageResource(R.drawable.yes);
+                    points++;
                 } else {
                     score1.setImageResource(R.drawable.no);
                 }
@@ -79,6 +92,7 @@ public class LetsPlayActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (correctAnswer == 2) {
+                    points++;
                     score2.setImageResource(R.drawable.yes);
                 } else {
                     score2.setImageResource(R.drawable.no);
@@ -98,6 +112,7 @@ public class LetsPlayActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (correctAnswer == 3) {
                     score3.setImageResource(R.drawable.yes);
+                    points++;
                 } else {
                     score3.setImageResource(R.drawable.no);
                 }
@@ -111,10 +126,17 @@ public class LetsPlayActivity extends AppCompatActivity {
             }
         });
         shadow4 = findViewById(R.id.shadow4);
+        gameOverScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newGame();
+            }
+        });
         shadow4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (correctAnswer == 4) {
+                    points++;
                     score4.setImageResource(R.drawable.yes);
                 } else {
                     score4.setImageResource(R.drawable.no);
@@ -133,6 +155,7 @@ public class LetsPlayActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (correctAnswer == 5) {
+                    points++;
                     score5.setImageResource(R.drawable.yes);
                 } else {
                     score5.setImageResource(R.drawable.no);
@@ -151,6 +174,7 @@ public class LetsPlayActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (correctAnswer == 6) {
+                    points++;
                     score6.setImageResource(R.drawable.yes);
                 } else {
                     score6.setImageResource(R.drawable.no);
@@ -193,11 +217,16 @@ public class LetsPlayActivity extends AppCompatActivity {
     void newGame() {
         Collections.shuffle(sportsmanIndex);
         playNextMove();
+        matchTime = 180;
+        points = 0;
+        move = 14;
+        move_disp.setText("15/15");
+        gameOverScreen.setVisibility(View.GONE);
         startTimer();
     }
 
     void playNextMove() {
-        move_disp.setText((move + 1) + "/15");
+        move_disp.setText((move) + "/15");
         score1.setVisibility(View.GONE);
         score2.setVisibility(View.GONE);
         score3.setVisibility(View.GONE);
@@ -227,6 +256,8 @@ public class LetsPlayActivity extends AppCompatActivity {
                 }
             }
             move--;
+        } else {
+            gameOver();
         }
     }
 
@@ -251,7 +282,17 @@ public class LetsPlayActivity extends AppCompatActivity {
                 matchTime--;
                 if (matchTime > 0) startTimer();
 
+                if (matchTime < 1) gameOver();
+
             }
-        }, 100);
+        }, oneSecond);
     }
+
+    void gameOver() {
+        gameOverScreen.setVisibility(View.VISIBLE);
+        if (points < 8) finaleMessage.setImageResource(R.drawable.try_again);
+        else finaleMessage.setImageResource(R.drawable.great);
+    }
+
+
 }
